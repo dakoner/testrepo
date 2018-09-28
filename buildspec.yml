@@ -1,0 +1,21 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - pip install nose
+  build:
+    commands:
+      - echo Build started on `date`
+      - python setup.py build
+      - nosetests -v
+  post_build:
+    commands:
+      - echo Build completed on `date`
+  install:
+    commands:
+      - python setup.py install
+artifacts:
+  files:
+    - build*/**
+  discard-paths: yes
